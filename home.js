@@ -4,8 +4,8 @@ var TYPES = require('tedious').TYPES;
 
 // Create connection to database
 var config = {
-  userName: 'sa', // update me
-  password: 'EgunOn2017!', // update me
+  userName: 'sa', 
+  password: 'EgunOn2017!', 
   server: 'localhost',
   options: {
       database: 'SampleDB'

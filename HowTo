@@ -1,20 +1,39 @@
 DEMO STEPS
 
+Requirements
+	Brew
+	VSCode
+	nodejs
+	SQL-CLI
+		npm install -g sql-cli
+	sequelizer
+		if orm demo
+	docker
+		change docker’s preferences on the top bar, 4gb vm's
+
 
 
 Demo steps
+	Show the application on nodejs
+		Hello World... that only connects
+		Something more advanced... using an orm
+		Something more advanced... so you don't use jus tthe toothpick
+	
+	Install SQL Server
+		open the aka.ms/sqldev site and show the steps
+			Copy the step to docker pull the image
+				sudo docker pull microsoft/mssql-server-linux	
+			List the docker images... and make a comment about the full stack images we have
+			Docker Run the existing image
+				docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=EgunOn2017! -p 1433:1433 -d microsoft/mssql-server-linux
+				docker ps -all
+			Now use the MSSQL CLI to create a sample database that we will use for the demo
+				mssql -s localhost -u sa -p EgunOn2017!
+				select @@version
+				create database 'SampleDB'
+	Show how we can connect to the SampleDB
+		
 
-	open the aka.ms/sqldev site
-	Docker Pull
-		sudo docker pull microsoft/mssql-server-linux	
-
-	Docker Run
-		docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=EgunOn2017! -p 1433:1433 -d microsoft/mssql-server-linux
-		docker ps -all
-
-	MSSQL CLI
-		mssql -s localhost -u sa -p EgunOn2017!
-		select @@version
 
 	VSCode (already opened with a nodes sample app and an empty file with language mode SQL)
 		> create profile
