@@ -1,0 +1,37 @@
+DEMO STEPS
+
+
+
+Demo steps
+
+	open the aka.ms/sqldev site
+	Docker Pull
+		sudo docker pull microsoft/mssql-server-linux	
+
+	Docker Run
+		docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=EgunOn2017! -p 1433:1433 -d microsoft/mssql-server-linux
+		docker ps -all
+
+	MSSQL CLI
+		mssql -s localhost -u sa -p EgunOn2017!
+		select @@version
+
+	VSCode (already opened with a nodes sample app and an empty file with language mode SQL)
+		> create profile
+		> create query
+		> execute query.  Cmd shift E
+			> Save as JSON
+		> (SQL 1) Execute query to create database, 
+			> (HELLO WORLD)Show the nodes connection
+		> (SQL 2) switch context, create schema…
+			> (JSON QUERY)
+			> Expla
+			> Show the connection
+		If time….
+		> (SQL 3 CS) make a change on the file (in-memory)
+			set statistics time on 
+			SELECT SUM(Price) FROM Table_with_5M_rows
+			set statistics time off
+ 		> done
+
+TALKING POINT FOR COLUMNSTORE — don’t use jus the toothpick!
