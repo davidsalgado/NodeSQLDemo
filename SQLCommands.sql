@@ -1,7 +1,52 @@
 select @@version
 
+CREATE DATABASE SampleDB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /** Insert some data **/
-use sampleDB;
 CREATE SCHEMA TestSchema;
 GO
 
@@ -18,10 +63,67 @@ INSERT INTO TestSchema.Employees (Name, Location) VALUES
 (N'Tom', N'Germany');
 GO
 
-SELECT * FROM TestSchema.Employees;
+SELECT * FROM TestSchema.Employees
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** JSON queries **/
+SELECT * FROM TestSchema.Employees for JSON Path, Root('EmployeeList')
+
+
+SELECT Id [Employee.Id], Name [Employee.Contact.Name], Location [Employee.Contact.Location] FROM TestSchema.Employees for JSON Path, Root('EmployeeList');
 GO
 
-/** Sample queries **/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /** 5M Rows! **/

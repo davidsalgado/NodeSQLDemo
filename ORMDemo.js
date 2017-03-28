@@ -1,7 +1,7 @@
 var Sequelize = require('sequelize');
 
 var userName = 'sa';
-var password = 'EgunOn2017!'; // update me
+var password = 'EgunOn17!'; // update me
 var hostName = 'localhost';
 var sampleDbName = 'SampleDB';
 
@@ -43,14 +43,14 @@ sampleDb.sync({force: true})
     // Create demo: Create a User instance and save it to the database
     User.create({firstName: 'Anna', lastName: 'Shrestinian'})
     .then(function(user) {
-        console.log('\nCreated User:', user.get({ plain: true}));
+        console.log('\nCreated User:\n', user.get({ plain: true}));
 
         // Create demo: Create a Task instance and save it to the database
         Task.create({
-            title: 'Ship Helsinki', dueDate: new Date(2017,04,01), isComplete: false
+            title: 'Ship feature A', dueDate: new Date(2017,04,01), isComplete: false
         })
         .then(function(task) {
-            console.log('\nCreated Task:', task.get({ plain: true}));
+            console.log('\nCreated Task:\n', task.get({ plain: true}));
 
             // Association demo: Assign task to user
             user.setTasks([task])
@@ -70,7 +70,7 @@ sampleDb.sync({force: true})
                 })
                 .then(function(users) {
                     console.log('\nIncomplete tasks assigned to Anna:\n',
-                JSON.stringify(users));
+                   user.get({plain:true}));
 
                     // Update demo: change the 'dueDate' of a task
                     Task.findById(1).then(function(task) {

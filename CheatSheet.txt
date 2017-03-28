@@ -1,0 +1,2 @@
+mssql -s localhost -u sa -p EgunOn2017! -q "CREATE DATABASE SampleDB;"
+
