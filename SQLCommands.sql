@@ -1,68 +1,5 @@
 select @@version
 
-CREATE DATABASE SampleDB;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/** Insert some data **/
-CREATE SCHEMA TestSchema;
-GO
-
-CREATE TABLE TestSchema.Employees (
-  Id INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-  Name NVARCHAR(50),
-  Location NVARCHAR(50)
-);
-GO
-
-INSERT INTO TestSchema.Employees (Name, Location) VALUES
-(N'Jared', N'Australia'),
-(N'Nikita', N'India'),
-(N'Tom', N'Germany');
-GO
-
 SELECT * FROM TestSchema.Employees
 
 
@@ -92,13 +29,44 @@ SELECT * FROM TestSchema.Employees
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /** JSON queries **/
+SELECT * FROM TestSchema.Employees
+
 SELECT * FROM TestSchema.Employees for JSON Path, Root('EmployeeList')
 
 
 SELECT Id [Employee.Id], Name [Employee.Contact.Name], Location [Employee.Contact.Location] FROM TestSchema.Employees for JSON Path, Root('EmployeeList');
-GO
-
 
 
 
@@ -152,3 +120,47 @@ CREATE CLUSTERED COLUMNSTORE INDEX Columnstoreindex ON Table_with_5M_rows;
 Set statistics time on
 SELECT SUM(Price) FROM Table_with_5M_rows
 Set statistics time off
+
+/**** cleanup ****/
+drop table Table_with_5M_rows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** Insert some data **/
+CREATE SCHEMA TestSchema;
+GO
+
+CREATE TABLE TestSchema.Employees (
+  Id INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+  Name NVARCHAR(50),
+  Location NVARCHAR(50)
+);
+GO
+
+INSERT INTO TestSchema.Employees (Name, Location) VALUES
+(N'Jared', N'Australia'),
+(N'Nikita', N'India'),
+(N'Tom', N'Germany');
+GO
+
+SELECT * FROM TestSchema.Employees
+
+
+
