@@ -6,7 +6,7 @@ var async = require('async');
 // Create connection to database
 var config = {
   userName: 'sa', 
-  password: 'EgunOn2017!', 
+  password: 'XXXXXX!', 
   server: 'localhost',
   options: {
     database: 'SampleDB'
